@@ -10,7 +10,23 @@
 		<script src="js/jquery.min.js"></script>
 		<script src="js/config.js"></script>
 		<script src="js/skel.min.js"></script>
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>		
+		<script language="JavaScript" type="text/JavaScript">
+		
+			var popUpWin=0;
+			function popUpWindow(URLStr, left, top, width, height)
+			{
+			  if(popUpWin)
+			  {
+				if(!popUpWin.closed) popUpWin.close();
+			  }
+			  popUpWin = open(URLStr, 'popUpWin', 'toolbar=no,location=no,directories=no,status=no,menub ar=no,scrollbar=no,resizable=no,copyhistory=yes,width='+width+',height='+height+',left='+left+', top='+top+',screenX='+left+',screenY='+top+'');
+			}
+		
+		</script>
+
 		<noscript>
+			
 			<link rel="stylesheet" href="css/skel-noscript.css" />
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-desktop.css" />
@@ -84,6 +100,7 @@
 							<li>Participação como desenvolvedor no projeto SPS da FHEMIG executado pela empresa ETEG</li>
 							<li>Participação como desenvolvedor no projeto SIGESP da FHEMIG executado pela empresa ETEG</li>
 							<li>Participação como desenvolvedor no projeto Delegacia Virtual da PCMG executado pela empresa ETEG</li>
+							<li><a onMouseDown="popUpWindow('images/dv.jpg', '100', '30', '1016', '491')"><img src="images/thumb_dv.jpg"/></a></li>
 						</ul>
 					</div>
 				</article>
@@ -97,6 +114,11 @@
 						<span>felipegodinho@hotmail.com</span><br/>
 						<span>+55 31 9194-8703</span>
 					</header>
+					<section>
+						<article>
+							<p><span id="status">Por favor aguarde enquanto nós tentamos locar você...</span></p>
+						</article>
+					</section>
 					<div>
 						<div class="row">
 							<div class="12u">
@@ -117,8 +139,26 @@
 						</ul>
 					</footer>
 				</article>
-			</div>
+				<!-- Google Maps Code -->
+				<script type="text/javascript"
+					src="http://maps.google.com/maps/api/js?sensor=true">
+				</script>
+				<script type="text/javascript">
+				  function initialize() {
+					var latlng = new google.maps.LatLng(-34.397, 150.644);
+					var myOptions = {
+					  zoom: 8,
+					  center: latlng,
+					  mapTypeId: google.maps.MapTypeId.ROADMAP
+					};
+					var map = new google.maps.Map(document.getElementById("map_canvas"),
+						myOptions);
+				  }
 
+				</script>
+				<!-- END Google Maps Code -->
+			</div>
+		
 
 	</body>
 </html>
